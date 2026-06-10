@@ -86,11 +86,11 @@ p{font-size:16px;margin-top:18px;letter-spacing:2px;color:#aaa}
   <p style="color:#aaa;font-size:16px;margin-bottom:40px">Join the vision. Be first to test PaulVision AI</p>
   
   <form id="leadForm" style="max-width:340px;margin:0 auto">
-    <input type="text" id="name" placeholder="Your Name" required style="width:100%;padding:14px;background:#000;border:1px solid #D4AF37;color:#fff;margin-bottom:12px;font-size:15px">
-    <input type="email" id="email" placeholder="Your Email" required style="width:100%;padding:14px;background:#000;border:1px solid #D4AF37;color:#fff;margin-bottom:20px;font-size:15px">
+    <input type="text" name="name" placeholder="Your Name" required style="width:100%;padding:14px;background:#000;border:1px solid #D4AF37;color:#fff;margin-bottom:12px;font-size:15px">
+    <input type="email" name="email" placeholder="Your Email" required style="width:100%;padding:14px;background:#000;border:1px solid #D4AF37;color:#fff;margin-bottom:20px;font-size:15px">
     <button type="submit" style="width:100%;padding:16px;background:#D4AF37;color:#000;border:none;font-size:15px;font-weight:600;cursor:pointer">Join Waitlist</button>
   </form>
-  <p style="color:#666;font-size:11px;margin-top:15px">No spam. Just vision updates.</p>
+  <p style="color:#666;font-size:11px;margin-top:15px">No spam. Just vision updates ☺️</p>
 </section>
 
 <footer style="background:#000;padding:30px 15px;text-align:center;border-top:1px solid rgba(212,175,55,0.2)">
@@ -102,26 +102,15 @@ window.addEventListener('load', ()=>{setTimeout(()=>document.body.classList.add(
 
 document.getElementById('leadForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
   
-  // REPLACE THIS URL WITH YOUR APPS SCRIPT WEB APP URL
-  const webhookUrl = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
-
-  fetch(webhookUrl, {
+  fetch("https://script.google.com/macros/s/AKfycbwq5l8Qqil8J3xsR_f95KQWNnF5sRcMdTjuPWyrkFJgRyl23AYEuh9AQQXGsqDb1_c/exec", {
     method: 'POST',
     mode: 'no-cors',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({name: name, email: email})
-  })
-  .then(() => {
-    alert('You’re In! We’ll notify you when PaulVision AI launches 🚀');
-    document.getElementById('leadForm').reset();
-  })
-  .catch(error => {
-    alert('Error. Try again.');
-    console.log(error);
+    body: new FormData(this)
   });
+  
+  alert('You\'re In! Check your email + Google Sheet ☺️');
+  this.reset();
 });
 </script>
 </body>

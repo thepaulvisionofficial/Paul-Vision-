@@ -99,15 +99,14 @@ p{font-size:16px;margin-top:18px;letter-spacing:2px;color:#aaa}
 
 <script>
 window.addEventListener('load', ()=>{setTimeout(()=>document.body.classList.add('loaded'),1500)})
-</script>
 
-<script>
 document.getElementById('leadForm').addEventListener('submit', function(e) {
   e.preventDefault();
   const name = document.getElementById('name').value;
   const email = document.getElementById('email').value;
   
- const webhookUrl = "https://script.google.com/macros/s/AKfycbyHMzdtGPDNZGfueG3VSF2GsY0PJWGfrhQ7IbInm7JbuY04OvWMIeAM2SxBk1f8f1fw/exec" ;
+  // REPLACE THIS URL WITH YOUR APPS SCRIPT WEB APP URL
+  const webhookUrl = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
 
   fetch(webhookUrl, {
     method: 'POST',

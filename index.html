@@ -1,45 +1,134 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>PaulVision AI - Join Waitlist</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PaulVision AI</title>
 <style>
-body{font-family:Arial;text-align:center;padding:50px;background:#0a0a0a;color:#fff}
-input{padding:12px;margin:8px;width:80%;max-width:300px;border-radius:8px;border:none;background:#1a1a1a;color:#fff}
-button{padding:12px 30px;background:#00ff88;border:none;border-radius:8px;color:#000;font-weight:bold;cursor:pointer;font-size:16px}
-h1{color:#00ff88;font-size:2.5rem}
-p{color:#ccc}
+body {
+  margin: 0;
+  background: #000;
+  color: #d4af37;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  text-align: center;
+}
+nav {
+  padding: 20px;
+  border-bottom: 1px solid #d4af37;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav div {
+  font-weight: 600;
+}
+.hero {
+  padding: 100px 20px 60px;
+}
+h1 {
+  font-size: 42px;
+  margin: 0 0 10px;
+  color: #d4af37;
+  font-weight: 600;
+}
+p.tagline {
+  color: #aaa;
+  font-size: 16px;
+  margin: 10px 0 30px;
+  letter-spacing: 1px;
+}
+.line {
+  width: 200px;
+  height: 1px;
+  background: #d4af37;
+  margin: 30px auto;
+}
+.btn {
+  border: 1px solid #d4af37;
+  color: #d4af37;
+  padding: 14px 32px;
+  background: transparent;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn:hover {
+  background: #d4af37;
+  color: #000;
+}
+.section {
+  padding: 60px 20px;
+}
+h2 {
+  color: #d4af37;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+.section p {
+  color: #ccc;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+form {
+  margin-top: 40px;
+  display: none;
+}
+input {
+  display: block;
+  width: 280px;
+  margin: 10px auto;
+  padding: 12px;
+  background: #111;
+  border: 1px solid #333;
+  color: #fff;
+  font-size: 16px;
+}
+input:focus {
+  outline: none;
+  border-color: #d4af37;
+}
 </style>
 </head>
 <body>
-<h1>🚀 PaulVision AI</h1>
-<p>We grow in vision</p>
 
-<form id="leadForm">
-<input type="text" id="name" placeholder="Your Name" required><br>
-<input type="email" id="email" placeholder="Your Email" required><br>
-<button type="submit">Join Waitlist</button>
-</form>
+<nav>
+  <div>PaulVision AI</div>
+  <div>☰</div>
+</nav>
 
-<p style="color:#666;font-size:12px">© 2026 PaulVision AI</p>
+<div class="hero">
+  <h1>PaulVision AI</h1>
+  <p class="tagline">we grow in vision</p>
+  <div class="line"></div>
+  <button class="btn" onclick="document.getElementById('form').style.display='block'">Get Early Access</button>
+  
+  <form id="form" action="https://script.google.com/macros/s/AKfycbxigNRu7pP7sw2g5U-PvTV-5h2HGWr0Wnn2KRRStS0aJqH0y4Pq4bkcdPjkGV-6t_WfOA/exec" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <button type="submit" class="btn">Join Waitlist</button>
+  </form>
+</div>
+
+<div class="section">
+  <h2>What is PaulVision AI</h2>
+  <p>We build visioning glass displays for the future. AI-powered, luxury, transparent.</p>
+</div>
 
 <script>
-document.getElementById('leadForm').addEventListener('submit', async function(e) {
-e.preventDefault();
-const name = document.getElementById('name').value;
-const email = document.getElementById('email').value;
-const webhookUrl = 'https://script.google.com/macros/s/AKfycbyesng5T_Kq-UwDjCEWUriMlMpLFnrCPQRULJJny0oNanfZQVc2Za6tezdhyJKot/exec';
-
-await fetch(webhookUrl, {
-method: 'POST',
-mode: 'no-cors',
-headers: {'Content-Type': 'application/json'},
-body: JSON.stringify({name: name, email: email})
-});
-
-alert('You’re In! We’ll notify you when PaulVision AI launches 🚀');
-document.getElementById('leadForm').reset();
+document.getElementById('form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var formData = new FormData(this);
+  fetch(this.action, {
+    method: 'POST',
+    body: formData
+  }).then(function() {
+    alert('Welcome to PaulVision AI waitlist!');
+    document.getElementById('form').reset();
+    document.getElementById('form').style.display = 'none';
+  });
 });
 </script>
+
 </body>
 </html>

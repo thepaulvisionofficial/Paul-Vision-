@@ -8,17 +8,17 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:Arial;background:#000;color:#fff;overflow-x:hidden}
-#loader{position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:9999;display:flex;flex-direction:column;justify-content:center;align-items:center;transition:opacity 0.8s}
-.loader-line{width:0;height:3px;background:linear-gradient(90deg,#D4AF37,#FFD700,#D4AF37);animation:loadLine 2s forwards;box-shadow:0 0 15px #D4AF37}
-.loader-text{color:#D4AF37;font-size:14px;letter-spacing:4px;margin-top:25px;opacity:0;animation:fadeIn 1s 1.2s forwards}
+#loader{position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:9999;display:flex;flex-direction:column;justify-content:center;align-items:center;transition:opacity 0.5s}
+.loader-line{width:0;height:3px;background:linear-gradient(90deg,#D4AF37,#FFD700,#D4AF37);animation:loadLine 0.8s forwards;box-shadow:0 0 15px #D4AF37}
+.loader-text{color:#D4AF37;font-size:14px;letter-spacing:4px;margin-top:25px;opacity:0;animation:fadeIn 0.6s 0.5s forwards}
 @keyframes loadLine{to{width:220px}} @keyframes fadeIn{to{opacity:1}}
 body.loaded #loader{opacity:0;pointer-events:none}
-nav{position:fixed;top:0;left:0;width:100%;background:#000;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;z-index:999;border-bottom:2px solid #D4AF37;opacity:0;animation:fadeIn 0.8s 1.8s forwards}
+nav{position:fixed;top:0;left:0;width:100%;background:#000;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;z-index:999;border-bottom:2px solid #D4AF37;opacity:0;animation:fadeIn 0.6s 1s forwards}
 .logo{display:flex;align-items:center;gap:10px}
 .logo svg{width:34px;height:34px;animation:rotate 5s linear infinite;filter:drop-shadow(0 0 8px #D4AF37)}
 .logo-text{color:#D4AF37;font-size:16px;font-weight:bold;letter-spacing:1.5px;text-shadow:0 0 10px rgba(212,175,55,0.4)}
 @keyframes rotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-.hero{background:#000;text-align:center;padding:160px 20px 100px;min-height:85vh;display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;transform:translateY(20px);animation:heroIn 1s 2s forwards}
+.hero{background:#000;text-align:center;padding:160px 20px 100px;min-height:85vh;display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;transform:translateY(20px);animation:heroIn 0.8s 1.2s forwards}
 @keyframes heroIn{to{opacity:1;transform:translateY(0)}}
 h1{font-size:48px;color:#D4AF37;margin:0;text-shadow:0 0 20px rgba(212,175,55,0.3)}
 p{font-size:16px;margin-top:20px;letter-spacing:2.5px;color:#aaa}
@@ -27,6 +27,8 @@ p{font-size:16px;margin-top:20px;letter-spacing:2.5px;color:#aaa}
 .cta:hover{background:#D4AF37;color:#000;box-shadow:0 0 25px #D4AF37;transform:translateY(-2px)}
 @media screen and (max-width:480px){nav{padding:12px 14px}.logo svg{width:28px;height:28px}.logo-text{font-size:14px}h1{font-size:36px;line-height:1.2}.hero{padding:140px 18px 80px}p{font-size:15px}.line{width:140px;margin:30px auto}.cta{font-size:15px;padding:14px 30px}}
 section{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease-out, transform 0.8s ease-out}
+@keyframes shine{0%{transform:translateX(-100%) rotate(45deg)}100%{transform:translateX(100%) rotate(45deg)}}
+@keyframes loadBar{0%{width:60%}50%{width:90%}100%{width:60%}}
 </style>
 </head>
 <body>
@@ -42,6 +44,7 @@ section{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease-out, t
   <div class="links" id="navLinks">
     <a href="#about" onclick="document.getElementById('navLinks').classList.remove('show')">About</a>
     <a href="#tech" onclick="document.getElementById('navLinks').classList.remove('show')">Tech</a>
+    <a href="#demo" onclick="document.getElementById('navLinks').classList.remove('show')">Demo</a>
     <a href="#cta-form" onclick="document.getElementById('navLinks').classList.remove('show')">Contact</a>
   </div>
 </nav>
@@ -73,6 +76,28 @@ section{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease-out, t
   </div>
 </section>
 
+<section id="demo" style="background:#000;padding:90px 15px;text-align:center">
+  <h2 style="font-size:34px;color:#D4AF37;margin-bottom:18px">Vision Glass Demo</h2>
+  <p style="color:#aaa;font-size:16px;margin-bottom:45px">See the future. Transparent AI display</p>
+  
+  <div style="max-width:400px;margin:0 auto;position:relative">
+    <div style="width:100%;height:300px;background:linear-gradient(135deg,rgba(212,175,55,0.1),rgba(255,255,255,0.05));border:2px solid rgba(212,175,55,0.4);border-radius:20px;backdrop-filter:blur(10px);box-shadow:0 0 40px rgba(212,175,55,0.2);display:flex;flex-direction:column;justify-content:center;align-items:center;position:relative;overflow:hidden">
+      <div style="position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent 30%,rgba(255,255,255,0.1) 50%,transparent 70%);animation:shine 3s infinite"></div>
+      <div style="z-index:2;text-align:center">
+        <div style="font-size:48px;margin-bottom:15px">👁️</div>
+        <h3 style="color:#D4AF37;font-size:22px;margin-bottom:8px">PaulVision Active</h3>
+        <p style="color:#ccc;font-size:14px;letter-spacing:1px">AI Vision: 99.8%</p>
+        <div style="width:200px;height:4px;background:rgba(212,175,55,0.3);margin:20px auto;border-radius:2px;overflow:hidden">
+          <div style="width:80%;height:100%;background:#D4AF37;animation:loadBar 2s infinite"></div>
+        </div>
+      </div>
+    </div>
+    <p style="color:#666;font-size:12px;margin-top:20px">Concept: Transparent Vision Glass with AI Overlay</p>
+  </div>
+  
+  <button class="cta" onclick="document.getElementById('cta-form').scrollIntoView({behavior:'smooth'})" style="margin-top:40px">Reserve Yours</button>
+</section>
+
 <section id="cta-form" style="background:#0a0a0a;padding:90px 15px;text-align:center">
   <h2 style="font-size:34px;color:#D4AF37;margin-bottom:18px">Get Early Access</h2>
   <p style="color:#aaa;font-size:16px;margin-bottom:40px">Join the vision. Be first to test PaulVision AI</p>
@@ -89,8 +114,8 @@ section{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease-out, t
 </footer>
 
 <script>
-// FIXED LOADER - removes after 2 seconds no matter what
-setTimeout(()=>document.body.classList.add('loaded'),2000)
+// FAST LOADER - 0.8s only, then main page shows
+setTimeout(()=>document.body.classList.add('loaded'),800)
 
 // Fade in sections on scroll
 const observer = new IntersectionObserver((entries)=>{

@@ -66,4 +66,46 @@ section{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease-out, t
 <section id="tech" style="background:#000;padding:90px 15px;text-align:center">
   <h2 style="font-size:34px;color:#D4AF37;margin-bottom:45px">Tech Specs</h2>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:380px;margin:0 auto">
-    <div><h3 style="color:#fff;font-size:30px;margin:0">4K</h3><p style="color:#aaa;font-size:12px">Display
+    <div><h3 style="color:#fff;font-size:30px;margin:0">4K</h3><p style="color:#aaa;font-size:12px">Display</p></div>
+    <div><h3 style="color:#fff;font-size:30px;margin:0">0.3s</h3><p style="color:#aaa;font-size:12px">AI Speed</p></div>
+    <div><h3 style="color:#fff;font-size:30px;margin:0">99%</h3><p style="color:#aaa;font-size:12px">Transparency</p></div>
+    <div><h3 style="color:#fff;font-size:30px;margin:0">Gold</h3><p style="color:#aaa;font-size:12px">Frame</p></div>
+  </div>
+</section>
+
+<section id="cta-form" style="background:#0a0a0a;padding:90px 15px;text-align:center">
+  <h2 style="font-size:34px;color:#D4AF37;margin-bottom:18px">Get Early Access</h2>
+  <p style="color:#aaa;font-size:16px;margin-bottom:40px">Join the vision. Be first to test PaulVision AI</p>
+  <form id="leadForm" style="max-width:340px;margin:0 auto">
+    <input type="text" name="name" placeholder="Your Name" required style="width:100%;padding:14px;background:#000;border:1px solid #D4AF37;color:#fff;margin-bottom:12px;font-size:15px">
+    <input type="email" name="email" placeholder="Your Email" required style="width:100%;padding:14px;background:#000;border:1px solid #D4AF37;color:#fff;margin-bottom:20px;font-size:15px">
+    <button type="submit" style="width:100%;padding:16px;background:#D4AF37;color:#000;border:none;font-size:15px;font-weight:600;cursor:pointer">Join Waitlist</button>
+  </form>
+  <p style="color:#666;font-size:11px;margin-top:15px">No spam. Just vision updates ☺️</p>
+</section>
+
+<footer style="background:#000;padding:30px 15px;text-align:center;border-top:1px solid rgba(212,175,55,0.2)">
+  <p style="color:#666;font-size:12px">© 2026 PaulVision AI. We grow in vision.</p>
+</footer>
+
+<script>
+// FIXED LOADER - removes after 2 seconds no matter what
+setTimeout(()=>document.body.classList.add('loaded'),2000)
+
+// Fade in sections on scroll
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{if(entry.isIntersecting){entry.target.style.opacity='1';entry.target.style.transform='translateY(0)'}})
+},{threshold:0.1});
+document.querySelectorAll('section').forEach(sec=>observer.observe(sec))
+
+document.getElementById('leadForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  fetch("https://script.google.com/macros/s/AKfycbwq5l8Qqil8J3xsR_f95KQWNnF5sRcMdTjuPWyrkFJgRyl23AYEuh9AQQXGsqDb1_c/exec", {
+    method: 'POST', mode: 'no-cors', body: new FormData(this)
+  });
+  alert('You\'re In! Check your email + Google Sheet ☺️');
+  this.reset();
+});
+</script>
+</body>
+</html>

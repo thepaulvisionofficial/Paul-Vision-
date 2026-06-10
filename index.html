@@ -9,22 +9,28 @@
 html{scroll-behavior:smooth}
 body{font-family:Arial;background:#000;color:#fff;overflow-x:hidden}
 #loader{position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:9999;display:flex;flex-direction:column;justify-content:center;align-items:center;transition:opacity 0.5s}
-.loader-line{width:0;height:3px;background:linear-gradient(90deg,#D4AF37,#FFD700,#D4AF37);animation:loadLine 0.8s forwards;box-shadow:0 0 15px #D4AF37}
-.loader-text{color:#D4AF37;font-size:14px;letter-spacing:4px;margin-top:25px;opacity:0;animation:fadeIn 0.6s 0.5s forwards}
+.loader-line{width:0;height:3px;background:linear-gradient(90deg,#fff,#D4AF37,#fff);animation:loadLine 0.8s forwards;box-shadow:0 0 15px #D4AF37}
+.loader-text{color:#fff;font-size:14px;letter-spacing:4px;margin-top:25px;opacity:0;animation:fadeIn 0.6s 0.5s forwards}
 @keyframes loadLine{to{width:220px}} @keyframes fadeIn{to{opacity:1}}
 body.loaded #loader{opacity:0;pointer-events:none}
-nav{position:fixed;top:0;left:0;width:100%;background:#000;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;z-index:999;border-bottom:2px solid #D4AF37;opacity:0;animation:fadeIn 0.6s 1s forwards}
+nav{position:fixed;top:0;left:0;width:100%;background:#000;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;z-index:999;border-bottom:1px solid rgba(255,255,255,0.1);opacity:0;animation:fadeIn 0.6s 1s forwards}
 .logo{display:flex;align-items:center;gap:10px}
-.logo svg{width:34px;height:34px;animation:rotate 5s linear infinite;filter:drop-shadow(0 0 8px #D4AF37)}
-.logo-text{color:#D4AF37;font-size:16px;font-weight:bold;letter-spacing:1.5px;text-shadow:0 0 10px rgba(212,175,55,0.4)}
+.logo svg{width:34px;height:34px;animation:rotate 5s linear infinite;filter:drop-shadow(0 0 6px rgba(255,255,255,0.3))}
+.logo-text{color:#fff;font-size:16px;font-weight:500;letter-spacing:2px}
 @keyframes rotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.menu-btn{color:#fff;font-size:22px;background:transparent;border:none;cursor:pointer;padding:5px 10px}
+.links{display:none;flex-direction:column;position:absolute;top:60px;right:0;background:#000;width:100%;border-top:1px solid rgba(255,255,255,0.1)}
+.links.show{display:flex}
+.links a{color:#ccc;text-decoration:none;padding:15px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);transition:0.3s;font-size:15px;letter-spacing:1px}
+.links a:hover{color:#fff;background:rgba(212,175,55,0.1)}
 .hero{background:#000;text-align:center;padding:160px 20px 100px;min-height:85vh;display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;transform:translateY(20px);animation:heroIn 0.8s 1.2s forwards}
 @keyframes heroIn{to{opacity:1;transform:translateY(0)}}
-h1{font-size:48px;color:#D4AF37;margin:0;text-shadow:0 0 20px rgba(212,175,55,0.3)}
+h1{font-size:48px;color:#fff;margin:0;letter-spacing:3px}
 p{font-size:16px;margin-top:20px;letter-spacing:2.5px;color:#aaa}
-.line{width:180px;height:2px;background:linear-gradient(90deg,transparent,#D4AF37,transparent);margin:35px auto}
-.cta{padding:15px 35px;background:transparent;border:2px solid #D4AF37;color:#D4AF37;font-size:16px;margin-top:30px;cursor:pointer;transition:all 0.4s;letter-spacing:1px}
-.cta:hover{background:#D4AF37;color:#000;box-shadow:0 0 25px #D4AF37;transform:translateY(-2px)}
+.line{width:180px;height:1px;background:linear-gradient(90deg,transparent,#D4AF37,transparent);margin:35px auto}
+.cta{padding:15px 35px;background:transparent;border:1px solid #fff;color:#fff;font-size:16px;margin-top:30px;cursor:pointer;transition:all 0.4s;letter-spacing:1px}
+.cta:hover{background:#fff;color:#000;box-shadow:0 0 20px rgba(255,255,255,0.3);transform:translateY(-2px)}
+@media screen and (min-width:768px){.menu-btn{display:none}.links{display:flex;position:static;flex-direction:row;width:auto;border:none;background:transparent}.links a{border:none;padding:0 18px}}
 @media screen and (max-width:480px){nav{padding:12px 14px}.logo svg{width:28px;height:28px}.logo-text{font-size:14px}h1{font-size:36px;line-height:1.2}.hero{padding:140px 18px 80px}p{font-size:15px}.line{width:140px;margin:30px auto}.cta{font-size:15px;padding:14px 30px}}
 section{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease-out, transform 0.8s ease-out}
 @keyframes shine{0%{transform:translateX(-100%) rotate(45deg)}100%{transform:translateX(100%) rotate(45deg)}}
@@ -37,58 +43,58 @@ section{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease-out, t
 
 <nav>
   <div class="logo">
-    <svg viewBox="0 0 100 100" fill="none"><rect x="10" y="20" width="80" height="60" rx="15" stroke="#D4AF37" stroke-width="3"/><rect x="20" y="30" width="60" height="40" rx="10" stroke="#D4AF37" stroke-width="2" opacity="0.6"/><circle cx="50" cy="50" r="15" stroke="#D4AF37" stroke-width="2"/><circle cx="50" cy="50" r="8" fill="#D4AF37"/><path d="M50 35 L50 42 M50 58 L50 65 M35 50 L42 50 M58 50 L65 50" stroke="#D4AF37" stroke-width="2"/></svg>
-    <span class="logo-text">PaulVision AI</span>
+    <svg viewBox="0 0 100 100" fill="none"><rect x="10" y="20" width="80" height="60" rx="15" stroke="#fff" stroke-width="2"/><rect x="20" y="30" width="60" height="40" rx="10" stroke="#fff" stroke-width="1.5" opacity="0.5"/><circle cx="50" cy="50" r="15" stroke="#fff" stroke-width="1.5"/><circle cx="50" cy="50" r="8" fill="#D4AF37"/><path d="M50 35 L50 42 M50 58 L50 65 M35 50 L42 50 M58 50 L65 50" stroke="#fff" stroke-width="1.5"/></svg>
+    <span class="logo-text">PAULVISION AI</span>
   </div>
   <button class="menu-btn" onclick="document.getElementById('navLinks').classList.toggle('show')">☰</button>
   <div class="links" id="navLinks">
     <a href="#about" onclick="document.getElementById('navLinks').classList.remove('show')">About</a>
     <a href="#tech" onclick="document.getElementById('navLinks').classList.remove('show')">Tech</a>
-    <a href="#demo" onclick="document.getElementById('navLinks').classList.remove('show')">Demo</a>
+    <a href="#display" onclick="document.getElementById('navLinks').classList.remove('show')">Display</a>
     <a href="#cta-form" onclick="document.getElementById('navLinks').classList.remove('show')">Contact</a>
   </div>
 </nav>
 
 <section class="hero">
-  <h1>PaulVision AI</h1>
+  <h1>PAULVISION AI</h1>
   <p>we grow in vision</p>
   <div class="line"></div>
   <button class="cta" onclick="document.getElementById('cta-form').scrollIntoView({behavior:'smooth'})">Get Early Access</button>
 </section>
 
 <section id="about" style="background:#0a0a0a;padding:90px 15px;text-align:center">
-  <h2 style="font-size:34px;color:#D4AF37;margin-bottom:18px">What is PaulVision AI</h2>
+  <h2 style="font-size:34px;color:#fff;margin-bottom:18px;letter-spacing:2px">What is PaulVision AI</h2>
   <p style="color:#aaa;font-size:16px;max-width:600px;margin:0 auto 45px">We build visioning glass displays for the future. AI-powered, luxury, transparent.</p>
   <div style="display:grid;grid-template-columns:1fr;gap:25px;max-width:500px;margin:0 auto">
-    <div style="padding:30px 15px;border:1px solid rgba(212,175,55,0.3)"><div style="font-size:36px;margin-bottom:15px">👁️</div><h3 style="color:#D4AF37;font-size:18px;margin-bottom:8px">Vision Displays</h3><p style="color:#ccc;font-size:14px">Transparent glass screens that show AI data</p></div>
-    <div style="padding:30px 15px;border:1px solid rgba(212,175,55,0.3)"><div style="font-size:36px;margin-bottom:15px">⚡</div><h3 style="color:#D4AF37;font-size:18px;margin-bottom:8px">AI Powered</h3><p style="color:#ccc;font-size:14px">Smart interfaces that learn your needs</p></div>
-    <div style="padding:30px 15px;border:1px solid rgba(212,175,55,0.3)"><div style="font-size:36px;margin-bottom:15px">💎</div><h3 style="color:#D4AF37;font-size:18px;margin-bottom:8px">Luxury Design</h3><p style="color:#ccc;font-size:14px">Premium materials + gold accents</p></div>
+    <div style="padding:30px 15px;border:1px solid rgba(255,255,255,0.1)"><div style="font-size:36px;margin-bottom:15px">👁️</div><h3 style="color:#fff;font-size:18px;margin-bottom:8px">Vision Displays</h3><p style="color:#ccc;font-size:14px">Transparent glass screens that show AI data</p></div>
+    <div style="padding:30px 15px;border:1px solid rgba(255,255,255,0.1)"><div style="font-size:36px;margin-bottom:15px">⚡</div><h3 style="color:#fff;font-size:18px;margin-bottom:8px">AI Powered</h3><p style="color:#ccc;font-size:14px">Smart interfaces that learn your needs</p></div>
+    <div style="padding:30px 15px;border:1px solid rgba(255,255,255,0.1)"><div style="font-size:36px;margin-bottom:15px">💎</div><h3 style="color:#fff;font-size:18px;margin-bottom:8px">Luxury Design</h3><p style="color:#ccc;font-size:14px">Premium materials + clean finish</p></div>
   </div>
 </section>
 
 <section id="tech" style="background:#000;padding:90px 15px;text-align:center">
-  <h2 style="font-size:34px;color:#D4AF37;margin-bottom:45px">Tech Specs</h2>
+  <h2 style="font-size:34px;color:#fff;margin-bottom:45px;letter-spacing:2px">Tech Specs</h2>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:380px;margin:0 auto">
     <div><h3 style="color:#fff;font-size:30px;margin:0">4K</h3><p style="color:#aaa;font-size:12px">Display</p></div>
     <div><h3 style="color:#fff;font-size:30px;margin:0">0.3s</h3><p style="color:#aaa;font-size:12px">AI Speed</p></div>
     <div><h3 style="color:#fff;font-size:30px;margin:0">99%</h3><p style="color:#aaa;font-size:12px">Transparency</p></div>
-    <div><h3 style="color:#fff;font-size:30px;margin:0">Gold</h3><p style="color:#aaa;font-size:12px">Frame</p></div>
+    <div><h3 style="color:#fff;font-size:30px;margin:0">Glass</h3><p style="color:#aaa;font-size:12px">Frame</p></div>
   </div>
 </section>
 
-<section id="demo" style="background:#000;padding:90px 15px;text-align:center">
-  <h2 style="font-size:34px;color:#D4AF37;margin-bottom:18px">Vision Glass Demo</h2>
-  <p style="color:#aaa;font-size:16px;margin-bottom:45px">See the future. Transparent AI display</p>
+<section id="display" style="background:#000;padding:90px 15px;text-align:center">
+  <h2 style="font-size:34px;color:#fff;margin-bottom:18px;letter-spacing:2px">Vision Display</h2>
+  <p style="color:#aaa;font-size:16px;margin-bottom:45px">See the future. Transparent AI interface</p>
   
   <div style="max-width:400px;margin:0 auto;position:relative">
-    <div style="width:100%;height:300px;background:linear-gradient(135deg,rgba(212,175,55,0.1),rgba(255,255,255,0.05));border:2px solid rgba(212,175,55,0.4);border-radius:20px;backdrop-filter:blur(10px);box-shadow:0 0 40px rgba(212,175,55,0.2);display:flex;flex-direction:column;justify-content:center;align-items:center;position:relative;overflow:hidden">
-      <div style="position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent 30%,rgba(255,255,255,0.1) 50%,transparent 70%);animation:shine 3s infinite"></div>
+    <div style="width:100%;height:300px;background:linear-gradient(135deg,rgba(255,255,255,0.05),rgba(212,175,55,0.08));border:1px solid rgba(255,255,255,0.2);border-radius:20px;backdrop-filter:blur(12px);box-shadow:0 0 40px rgba(212,175,55,0.15);display:flex;flex-direction:column;justify-content:center;align-items:center;position:relative;overflow:hidden">
+      <div style="position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent 30%,rgba(255,255,255,0.08) 50%,transparent 70%);animation:shine 3s infinite"></div>
       <div style="z-index:2;text-align:center">
         <div style="font-size:48px;margin-bottom:15px">👁️</div>
-        <h3 style="color:#D4AF37;font-size:22px;margin-bottom:8px">PaulVision Active</h3>
+        <h3 style="color:#fff;font-size:22px;margin-bottom:8px;letter-spacing:1px">PaulVision Active</h3>
         <p style="color:#ccc;font-size:14px;letter-spacing:1px">AI Vision: 99.8%</p>
-        <div style="width:200px;height:4px;background:rgba(212,175,55,0.3);margin:20px auto;border-radius:2px;overflow:hidden">
-          <div style="width:80%;height:100%;background:#D4AF37;animation:loadBar 2s infinite"></div>
+        <div style="width:200px;height:3px;background:rgba(255,255,255,0.2);margin:20px auto;border-radius:2px;overflow:hidden">
+          <div style="width:80%;height:100%;background:linear-gradient(90deg,#fff,#D4AF37);animation:loadBar 2s infinite"></div>
         </div>
       </div>
     </div>
@@ -99,25 +105,23 @@ section{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease-out, t
 </section>
 
 <section id="cta-form" style="background:#0a0a0a;padding:90px 15px;text-align:center">
-  <h2 style="font-size:34px;color:#D4AF37;margin-bottom:18px">Get Early Access</h2>
+  <h2 style="font-size:34px;color:#fff;margin-bottom:18px;letter-spacing:2px">Get Early Access</h2>
   <p style="color:#aaa;font-size:16px;margin-bottom:40px">Join the vision. Be first to test PaulVision AI</p>
   <form id="leadForm" style="max-width:340px;margin:0 auto">
-    <input type="text" name="name" placeholder="Your Name" required style="width:100%;padding:14px;background:#000;border:1px solid #D4AF37;color:#fff;margin-bottom:12px;font-size:15px">
-    <input type="email" name="email" placeholder="Your Email" required style="width:100%;padding:14px;background:#000;border:1px solid #D4AF37;color:#fff;margin-bottom:20px;font-size:15px">
-    <button type="submit" style="width:100%;padding:16px;background:#D4AF37;color:#000;border:none;font-size:15px;font-weight:600;cursor:pointer">Join Waitlist</button>
+    <input type="text" name="name" placeholder="Your Name" required style="width:100%;padding:14px;background:#000;border:1px solid rgba(255,255,255,0.2);color:#fff;margin-bottom:12px;font-size:15px">
+    <input type="email" name="email" placeholder="Your Email" required style="width:100%;padding:14px;background:#000;border:1px solid rgba(255,255,255,0.2);color:#fff;margin-bottom:20px;font-size:15px">
+    <button type="submit" style="width:100%;padding:16px;background:#fff;color:#000;border:none;font-size:15px;font-weight:600;cursor:pointer">Join Waitlist</button>
   </form>
-  <p style="color:#666;font-size:11px;margin-top:15px">No spam. Just vision updates ☺️</p>
+  <p style="color:#666;font-size:11px;margin-top:15px">No spam. Just vision updates</p>
 </section>
 
-<footer style="background:#000;padding:30px 15px;text-align:center;border-top:1px solid rgba(212,175,55,0.2)">
+<footer style="background:#000;padding:30px 15px;text-align:center;border-top:1px solid rgba(255,255,255,0.1)">
   <p style="color:#666;font-size:12px">© 2026 PaulVision AI. We grow in vision.</p>
 </footer>
 
 <script>
-// FAST LOADER - 0.8s only, then main page shows
 setTimeout(()=>document.body.classList.add('loaded'),800)
 
-// Fade in sections on scroll
 const observer = new IntersectionObserver((entries)=>{
   entries.forEach(entry=>{if(entry.isIntersecting){entry.target.style.opacity='1';entry.target.style.transform='translateY(0)'}})
 },{threshold:0.1});
@@ -128,7 +132,7 @@ document.getElementById('leadForm').addEventListener('submit', function(e) {
   fetch("https://script.google.com/macros/s/AKfycbwq5l8Qqil8J3xsR_f95KQWNnF5sRcMdTjuPWyrkFJgRyl23AYEuh9AQQXGsqDb1_c/exec", {
     method: 'POST', mode: 'no-cors', body: new FormData(this)
   });
-  alert('You\'re In! Check your email + Google Sheet ☺️');
+  alert('You\'re In! Check your email + Google Sheet');
   this.reset();
 });
 </script>
